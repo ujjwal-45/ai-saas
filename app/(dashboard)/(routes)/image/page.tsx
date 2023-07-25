@@ -21,7 +21,6 @@ import { cn } from "@/lib/utils";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,

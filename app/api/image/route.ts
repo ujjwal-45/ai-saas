@@ -21,13 +21,12 @@ export async function POST(req: Request) {
 
         }
 
-
          if (!configuration.apiKey) {
          return new NextResponse("OpenAI API Key not configured.", { status: 500 });
         }
 
          if (!prompt) {
-            return new NextResponse("Prompt is Required", { status: 400 })
+             return new NextResponse("Prompt is Required", { status: 400 });
          }
         
          if (!amount) {
@@ -37,17 +36,15 @@ export async function POST(req: Request) {
         if (!resolution) {
         return new NextResponse("Resolution is required", { status: 400 });
         }
-        
-        
-        
+             
        
     const response = await openai.createImage({
-      prompt,
+      prompt: prompt,
       n: parseInt(amount, 10),
       size: resolution,
     });
         
-        return NextResponse.json(response.data.data);
+    return NextResponse.json(response.data.data);
 
     } catch (error) {
         console.log("[IMAGE_ERROR]", error);
