@@ -18,7 +18,7 @@ const DashboardLayout = ({
             <main className="md:pl-72">
                 <Navbar />
                 {children}
-                <Toaster />
+              
 
             </main>
         </div>
