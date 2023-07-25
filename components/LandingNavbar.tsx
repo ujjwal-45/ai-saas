@@ -21,7 +21,7 @@ export const LandingNavbar = () => {
                   <Image
                       alt="logo"
                       fill
-                      src="/logoX.jpg"
+                      src="/logoX.png"
                   />
               </div>
               <h1 className={cn("text-2xl font-bold text-white", rajdhani.className)}>

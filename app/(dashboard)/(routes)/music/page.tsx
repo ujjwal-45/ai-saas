@@ -7,6 +7,7 @@ import * as z from "zod"
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { LoaderMusic } from "@/components/LoaderMusic"
 
 
 import { formSchema } from "./constants";
@@ -93,7 +94,7 @@ const MusicPage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-                        <Loader />
+                        <LoaderMusic />
                     </div>
                 )}
                 {!music && !isLoading && (

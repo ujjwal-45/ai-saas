@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/Empty";
 import { Loader } from "@/components/Loader";
 import { useToast } from "@/components/ui/use-toast";
+import { LoaderMusic } from "@/components/LoaderMusic";
 
 const VideoPage = () => {
     const router = useRouter();
@@ -93,7 +94,7 @@ const VideoPage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-                        <Loader />
+                        <LoaderMusic />
                     </div>
                 )}
                 {!video && !isLoading && (
