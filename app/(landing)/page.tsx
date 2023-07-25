@@ -4,7 +4,7 @@ import Link from "next/link";
 const LandingPage = () => {
     return (
         <div>
-            {/* <Link href= "/sign-in" >
+            <Link href= "/sign-in" >
                 <Button>
                Login
             </Button>
@@ -14,7 +14,7 @@ const LandingPage = () => {
                 <Button>
                Register
             </Button>
-            </Link> */}
+            </Link>
             
         </div>
     )

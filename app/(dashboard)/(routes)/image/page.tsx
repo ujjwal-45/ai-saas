@@ -31,7 +31,7 @@ import { Card, CardFooter } from "@/components/ui/card";
 
 
 
-const CodePage = () => {
+const ImagePage = () => {
     const router = useRouter();
     const [images, setImages] = useState<string[]>([]);
     const form = useForm<z.infer<typeof formSchema>>({
@@ -211,4 +211,4 @@ const CodePage = () => {
     )
 }
 
-export default CodePage;
+export default ImagePage;
