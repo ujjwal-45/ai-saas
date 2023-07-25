@@ -16,9 +16,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/Empty";
 import { Loader } from "@/components/Loader";
+import { useToast } from "@/components/ui/use-toast";
 
 const MusicPage = () => {
     const router = useRouter();
+    const { toast } = useToast();
     const [music, setMusic] = useState<string>();
     
     const form = useForm<z.infer<typeof formSchema>>({
@@ -42,7 +44,11 @@ const MusicPage = () => {
         }
         catch (error: any) {
             // open pro model
-            console.log(error);
+            toast({
+                title: "Something went wrong",
+                variant: "destructive"
+                
+           })
         }
         finally {
             router.refresh();

@@ -19,10 +19,12 @@ import { Loader } from "@/components/Loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/UserAvatar";
 import { BotAvatar } from "@/components/BotAvatar";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const ChatPage = () => {
     const router = useRouter();
+    const { toast } = useToast();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -35,6 +37,7 @@ const ChatPage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
+           
             const userMessage: ChatCompletionRequestMessage = {
                 role: "user",
                 content: values.prompt,
@@ -51,7 +54,11 @@ const ChatPage = () => {
         }
         catch (error: any) {
             // open pro model
-            console.log(error);
+            toast({
+                title: "Something went wrong",
+                variant: "destructive"
+                
+           })
         }
         finally {
             router.refresh();

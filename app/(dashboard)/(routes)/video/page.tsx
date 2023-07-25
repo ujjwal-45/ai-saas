@@ -16,10 +16,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/Empty";
 import { Loader } from "@/components/Loader";
+import { useToast } from "@/components/ui/use-toast";
 
 const VideoPage = () => {
     const router = useRouter();
     const [video, setVideo] = useState<string>();
+    const { toast } = useToast();
     
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -42,7 +44,11 @@ const VideoPage = () => {
         }
         catch (error: any) {
             // open pro model
-            console.log(error);
+           toast({
+                title: "Something went wrong",
+                variant: "destructive"
+                
+           })
         }
         finally {
             router.refresh();
@@ -91,7 +97,7 @@ const VideoPage = () => {
                     </div>
                 )}
                 {!video && !isLoading && (
-                    <Empty label="No music generated" />
+                    <Empty label="No video generated" />
                 )}
                 
                 {video && (

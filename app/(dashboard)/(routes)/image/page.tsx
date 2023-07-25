@@ -26,12 +26,14 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Card, CardFooter } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast";
 
 
 
 
 const ImagePage = () => {
     const router = useRouter();
+    const { toast } = useToast();
     const [images, setImages] = useState<string[]>([]);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -58,7 +60,11 @@ const ImagePage = () => {
         }
         catch (error: any) {
             // open pro model
-            console.log(error);
+            toast({
+                title: "Something went wrong",
+                variant: "destructive"
+                
+           })
         }
         finally {
             router.refresh();
