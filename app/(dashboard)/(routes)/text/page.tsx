@@ -95,7 +95,7 @@ const TextPage = () => {
                             )}
                         />
                         <Button className="col-span-12 lg:col-span-2 w-full " disabled={isLoading}>
-                            Generate
+                            Summarize
                         </Button>
 
                     </form>
